@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moaz Elgendy, DevOps &amp; Cloud Engineer</title>
+<meta name="description" content="Moaz Elgendy is a DevOps and cloud engineer with a networking background. Kubernetes platforms, GitOps pipelines and infrastructure as code on AWS.">
+<meta property="og:title" content="Moaz Elgendy, DevOps &amp; Cloud Engineer">
+<meta property="og:description" content="Kubernetes platforms, GitOps pipelines and infrastructure as code on AWS. The journey from networking to DevOps.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#14204a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314204a'/%3E%3Cpath d='M7 23V9h4l5 8 5-8h4v14h-4v-7l-5 7-5-7v7z' fill='%23f2c14e'/%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/BricolageGrotesque-0.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<script>document.documentElement.className = "js"</script>
+<style>
+/* Scheme "Signal": navy ink, saturated colour only in small accents. Each chapter repaints the page in a soft tint. */
+:root{--ink:#14204a;--blue:#3f5bd9;--gold:#e9a820;--coral:#e2574c;--green:#2e9e88;
+  --bg:#f2f4f8;--fg:var(--ink);--line:var(--blue);--hi:var(--coral)}
+body[data-theme=sky]{--bg:#dde5f8}
+body[data-theme=butter]{--bg:#f7e7b4;--line:var(--ink);--hi:var(--blue)}
+body[data-theme=blush]{--bg:#f6dad3;--line:var(--coral);--hi:var(--blue)}
+body[data-theme=mint]{--bg:#d6ece4;--line:var(--green);--hi:var(--blue)}
+body[data-theme=lilac]{--bg:#e6dcf5;--line:#7a52c7;--hi:var(--coral)}
+body[data-theme=night]{--bg:#14204a;--fg:#eef1fa;--line:var(--gold);--hi:#f2c14e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.55 "Hanken Grotesk",system-ui,sans-serif;overflow-x:hidden;transition:background .7s,color .7s}
+.display{font-family:"Bricolage Grotesque",Impact,sans-serif;font-weight:800;text-transform:uppercase;line-height:.9;margin:0}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--hi);outline-offset:3px}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;padding:3vh 4vw;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-rows:auto 1fr auto;gap:2.5vh 3vw;
+  grid-template-areas:"title title" "term net" "links net"}
+.title{grid-area:title;display:grid;grid-template-columns:max-content minmax(0,1fr);align-items:center;column-gap:3vw;grid-template-areas:"moaz role" "elg elg"}
+.name{display:contents}
+.name span{display:block;overflow:hidden;white-space:nowrap;font-size:var(--n,14vw);padding-top:.04em}
+.name span:first-child{grid-area:moaz}.name span:last-child{grid-area:elg;justify-self:start}
+.name b{display:inline-block;font-weight:800;animation:rise .7s cubic-bezier(.2,.9,.2,1) both calc(var(--i)*.045s)}
+@keyframes rise{from{transform:translateY(105%) rotate(6deg)}}
+.role{grid-area:role;justify-self:start;rotate:-3deg;background:var(--blue);color:#fff;padding:.4em .6em .3em;white-space:nowrap;
+  font-size:clamp(20px,2.5vw,40px);box-shadow:.16em .16em 0 var(--ink);animation:stamp .5s both .75s}
+@keyframes stamp{from{opacity:0;scale:2.2;rotate:10deg}}
+
+.term{grid-area:term;align-self:end;background:var(--ink);color:#e6eaf7;font:400 clamp(12.5px,1.15vw,15px)/1.6 "JetBrains Mono",ui-monospace,monospace;box-shadow:8px 8px 0 var(--blue);border-radius:10px;overflow:hidden}
+.bar{display:flex;gap:7px;align-items:center;padding:10px 14px;background:#0d1636;color:#8f9cc9;font-size:12px}
+.bar i{width:11px;height:11px;border-radius:50%;background:var(--coral)}.bar i:nth-child(2){background:var(--gold)}.bar i:nth-child(3){background:var(--green);margin-right:8px}
+.out{padding:14px 18px 18px}
+.cmd{color:#f2c14e;font-weight:700;white-space:nowrap;overflow:hidden;width:0;border-right:.6em solid #f2c14e;animation:type 1s steps(32) forwards .9s,blink .8s step-end infinite}
+@keyframes type{to{width:32ch}}@keyframes blink{50%{border-color:transparent}}
+.out dl{margin:10px 0 0;display:grid;grid-template-columns:auto 1fr;gap:3px 16px}
+.out dl>*{opacity:0;animation:show .01s both calc(2s + var(--i)*.13s)}
+@keyframes show{to{opacity:1}}
+.out dt{color:#9fb0e8}.out dd{margin:0}
+.out .sec{grid-column:1/-1;margin-top:8px}
+.out .sub{padding-left:1.2em;color:#fff;font-weight:700}
+.out a{text-decoration-color:#9fb0e8;text-underline-offset:3px}
+.ok{color:#6fd3a8;font-weight:700}
+.stack{display:flex;flex-wrap:wrap;gap:6px;padding:3px 0}
+.stack img{width:26px;height:26px;padding:4px;background:#fff;border-radius:6px}
+
+.net{grid-area:net;position:relative;min-height:300px}
+.net canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:pan-y}
+.links{grid-area:links;display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-weight:800;text-decoration:none;padding:13px 20px;border:3px solid var(--fg);background:var(--bg);color:var(--fg);box-shadow:5px 5px 0 var(--fg);transition:translate .12s,box-shadow .12s,background .7s,color .7s,border-color .7s}
+.btn:hover{translate:3px 3px;box-shadow:2px 2px 0 var(--fg)}
+.btn.go{background:var(--coral);color:#fff}
+
+/* ---------- journey ---------- */
+.journey{position:relative;padding:0 4vw 0 84px}
+.spine{position:absolute;left:30px;top:0;bottom:0;width:8px;background:color-mix(in srgb,var(--fg) 14%,transparent)}
+.spine i{display:block;position:relative;height:var(--p,0%);background:var(--line);transition:background .7s}
+.spine i::after{content:"";position:absolute;left:-9px;bottom:-13px;width:26px;height:26px;border-radius:50%;background:var(--hi);border:4px solid var(--bg);animation:ping 1.6s infinite}
+@keyframes ping{from{box-shadow:0 0 0 0 var(--hi)}to{box-shadow:0 0 0 20px transparent}}
+.ch{position:relative;min-height:100svh;padding:16vh 0 12vh;display:flex;flex-direction:column;justify-content:center;scroll-margin-top:-8vh}
+.ch>*{position:relative}
+.ch>.year{position:absolute;right:-2vw;top:6vh;font-size:min(30vw,400px);color:transparent;-webkit-text-stroke:3px var(--fg);opacity:.13;pointer-events:none}
+@supports (animation-timeline:view()){.year{animation:par linear both;animation-timeline:view()}}
+@keyframes par{from{translate:0 30vh}to{translate:0 -30vh}}
+.when{font-weight:800;font-size:20px;margin:0 0 14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-size:14px;padding:5px 12px;border-radius:99px}
+.pill::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);animation:ping 1.6s infinite;--hi:var(--gold)}
+.ch h2{font-size:clamp(38px,7vw,104px);max-width:11em;line-height:.95}
+.ch h2 span{display:inline-block;overflow:hidden;vertical-align:top;padding:.05em .26em 0 0}
+.ch h2 b{display:block;font-weight:800;transition:translate .6s cubic-bezier(.2,.9,.2,1) calc(var(--i)*.06s)}
+.js .ch h2 b{translate:0 110%}.js .ch.on h2 b{translate:0}
+.ch p{max-width:34em;margin:22px 0 0}
+.ch p.small{font-size:16px;opacity:.85}
+blockquote{margin:30px 0 0;padding-left:22px;border-left:8px solid var(--hi);font-size:clamp(21px,2.6vw,32px);font-weight:600;line-height:1.25;max-width:22em}
+
+/* tools = stops on a branch line that leaves the spine; every row reaches back to the spine */
+.stops{display:grid;grid-template-columns:repeat(auto-fill,96px);row-gap:22px;margin:44px 0 0;padding:0;list-style:none}
+.stops li{position:relative;text-align:center;font-size:13px;font-weight:800;line-height:1.2}
+.stops li::before{content:"";position:absolute;right:50%;top:27px;width:100%;height:8px;background:var(--line);transform-origin:left;transition:scale .2s linear calc(var(--i)*.12s + .3s),background .7s}
+.stops span{display:grid;place-items:center;width:62px;height:62px;margin:0 auto 8px;border-radius:50%;background:#fff;color:var(--ink);border:5px solid var(--ink);position:relative;z-index:1;font-size:12px;transition:scale .35s cubic-bezier(.3,1.8,.5,1) calc(var(--i)*.12s + .42s)}
+.js .stops li::before{scale:0 1}.js .stops span{scale:0}
+.js .ch.on .stops li::before,.js .ch.on .stops span{scale:1}
+.js .ch.on .stops li:hover span{scale:1.16;transition-delay:0s}
+.stops img{width:30px;height:30px}
+
+.facts{display:flex;flex-wrap:wrap;gap:20px 52px;margin:48px 0 0}
+.facts b{display:block;font:800 clamp(46px,6vw,88px)/.95 "Bricolage Grotesque",sans-serif;color:var(--hi);transition:color .7s}
+.facts span{display:block;max-width:13em;font-weight:600;margin-top:6px}
+.shot{display:block;width:min(100%,900px);height:auto;margin:56px 0 30px;background:#fff;border:4px solid var(--ink);border-radius:8px;box-shadow:12px 12px 0 var(--line);transition:clip-path 1s cubic-bezier(.7,0,.2,1) .4s,box-shadow .7s}
+.shot.tall{width:min(100%,400px)}
+.js .shot{clip-path:inset(0 100% 0 0)}.js .ch.on .shot{clip-path:inset(-20px)}
+.ecg{display:block;width:min(100%,760px);height:auto;margin:44px 0 0;overflow:visible}
+.ecg path{fill:none;stroke:var(--hi);stroke-width:4;stroke-linejoin:round;stroke-linecap:round;stroke-dasharray:1;animation:trace 3.2s linear infinite}
+@keyframes trace{from{stroke-dashoffset:1}}
+.ch .links{margin-top:8px}
+.mail{display:inline-block;margin-top:26px;font:800 clamp(22px,4.6vw,64px)/1.1 "Bricolage Grotesque",sans-serif;text-decoration-color:var(--hi);text-decoration-thickness:.12em;text-underline-offset:.16em;overflow-wrap:anywhere}
+.cv{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:26px 40px;margin:56px 0 0;padding:0;max-width:980px}
+.cv h3{margin:0 0 6px;font-size:16px}.cv p{margin:0;font-size:16px}
+footer{padding:40px 0 60px;font-size:15px;opacity:.8;max-width:40em}
+
+/* ---------- phone ---------- */
+@media (max-width:800px){
+  body{font-size:17px}
+  .hero{min-height:0;grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-template-areas:"title" "term" "net" "links";padding:18px 16px 40px;gap:18px}
+  .title{grid-template-columns:minmax(0,1fr);grid-template-areas:"moaz" "elg" "role";row-gap:0}
+  .role{margin-top:14px;rotate:-2deg;font-size:min(6.2vw,26px)}
+  .term{box-shadow:5px 5px 0 var(--blue);font-size:12.5px}.out{padding:12px 14px 14px}.out dl{gap:2px 12px}
+  .out .sub,.out .sub+dd{grid-column:1/-1}.out .sub+dd{padding-left:1.2em;margin-bottom:4px}
+  .net{height:340px;min-height:0;margin:0 -6px}
+  .links .btn{flex:1 1 40%;text-align:center;padding:14px 10px}
+  .journey{padding:0 16px 0 58px}.spine{left:18px;width:7px}.spine i::after{left:-8px;width:23px;height:23px}
+  .ch{min-height:0;padding:15vh 0 9vh}
+  .ch>.year{top:5vh;right:-10px;-webkit-text-stroke-width:2px}
+  .stops{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:18px;margin-top:34px}
+  .stops li{font-size:11.5px}.stops li::before{top:22px;height:7px}
+  .stops span{width:52px;height:52px;border-width:4px;font-size:10.5px}.stops img{width:25px;height:25px}
+  .facts{gap:22px 28px}.shot{box-shadow:7px 7px 0 var(--line);margin:40px 0 26px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}
+  .js .ch h2 b{translate:0}.js .stops span,.js .stops li::before{scale:1}.js .shot{clip-path:none}.out dl>*{opacity:1}.cmd{width:auto;border:0}}
+</style>
+</head>
+
+<body data-theme="paper">
+<header class="hero" data-theme="paper">
+  <div class="title">
+    <h1 class="display name" aria-label="Moaz Elgendy"><span>Moaz</span><span>Elgendy</span></h1>
+    <p class="display role">DevOps &amp; Cloud Engineer</p>
+  </div>
+
+  <div class="term">
+    <div class="bar"><i></i><i></i><i></i>moaz@portfolio: ~</div>
+    <div class="out">
+      <div class="cmd">$ kubectl describe engineer moaz</div>
+      <dl>
+        <dt style="--i:0">Name:</dt><dd style="--i:0">moaz-elgendy</dd>
+        <dt style="--i:1">Role:</dt><dd style="--i:1">DevOps &amp; Cloud Engineer</dd>
+        <dt style="--i:2">Labels:</dt><dd style="--i:2">background=networking<br>degree=communication-eng</dd>
+        <dt style="--i:3">Node:</dt><dd style="--i:3">Giza, Egypt</dd>
+        <dt style="--i:4">Status:</dt><dd style="--i:4"><span class="ok">Ready</span>, open to DevOps roles</dd>
+        <dt style="--i:5">Stack:</dt><dd style="--i:5" class="stack" data-stack="kubernetes:Kubernetes,docker:Docker,terraform:Terraform,aws:AWS,ansible:Ansible,jenkins:Jenkins,argo:Argo CD,githubactions:GitHub Actions,prometheus:Prometheus,grafana:Grafana,linux:Linux,python:Python"></dd>
+        <dt class="sec" style="--i:6">Shipped:</dt>
+        <dt class="sub" style="--i:7"><a href="#sentinel">sentinel-sre</a></dt><dd style="--i:7">self-heals Kubernetes failures in 30–90&nbsp;s</dd>
+        <dt class="sub" style="--i:8"><a href="#gitops">gitops-platform</a></dt><dd style="--i:8">kubeadm + Argo CD, 0 manual deploys</dd>
+        <dt class="sub" style="--i:9"><a href="#pulse">pulse-ecg</a></dt><dd style="--i:9">99.15% accuracy, published in IEEE Xplore</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="net"><canvas id="net" role="img" aria-label="Animated network of the tools I use, linked the way they connect in my pipelines"></canvas></div>
+
+  <nav class="links" aria-label="Profiles">
+    <a class="btn go" href="#roots">See how I got here</a>
+    <a class="btn" href="https://github.com/Moaz-Elgendy">GitHub</a>
+    <a class="btn" href="https://linkedin.com/in/moaz-m-elgendy">LinkedIn</a>
+    <a class="btn" href="Moaz_Elgendy_CV.pdf">Download CV</a>
+  </nav>
+</header>
+
+<main class="journey" id="journey">
+  <div class="spine" aria-hidden="true"><i></i></div>
+
+  <section class="ch" id="roots" data-theme="sky">
+    <div class="display year" aria-hidden="true">2025</div>
+    <p class="when">2025, where it started</p>
+    <h2 class="display">It started with packets</h2>
+    <p>I am a communication and electronics engineer. Before any cluster, I learned how data really moves: CCNA labs, then a network engineering internship at CONNECT. VLANs, trunks, STP and EtherChannel on the switching side. OSPF, EIGRP, BGP and VRF on the routing side.</p>
+    <p>A cluster is a network first. Pod networking, Services, Ingress and NetworkPolicy are the same ideas with new names.</p>
+    <ul class="stops" data-tools="cisco:Cisco,:VLAN,:STP,:OSPF,:EIGRP,:BGP,:NAT,:TLS"></ul>
+  </section>
+
+  <section class="ch" id="door" data-theme="butter">
+    <div class="display year" aria-hidden="true">2025</div>
+    <p class="when">2025, the turning point</p>
+    <h2 class="display">Network automation was the door</h2>
+    <p>I was studying routing and switching when I met network automation. Configuring one device by hand is a lab. Configuring fifty with code is engineering. I followed that idea step by step and it led me into DevOps.</p>
+    <blockquote>I can chase one error for hours and not feel tired. A little frustrated, maybe. Who isn't?</blockquote>
+    <ul class="stops" data-tools="cisco:Cisco,python:Python,ansible:Ansible,linux:Linux,gnubash:Bash"></ul>
+  </section>
+
+  <section class="ch" id="pipeline" data-theme="blush">
+    <div class="display year" aria-hidden="true">CI</div>
+    <p class="when">DEPI DevOps training, first project</p>
+    <h2 class="display">My first pipeline, end to end</h2>
+    <p>A React app, containerised twice: a development image with live reload, and a production image that is only Nginx and the static build. GitHub Actions tests and builds it, uploads the artifact to S3, then deploys to EC2 with Docker Compose. A separate Jenkins pipeline runs the same tests.</p>
+    <p class="small">Early work. The repository layout has drifted since, and its README says so.</p>
+    <ul class="stops" data-tools="react:React,docker:Docker,githubactions:GitHub Actions,jenkins:Jenkins,aws:S3 + EC2,nginx:Nginx"></ul>
+    <img class="shot tall" loading="lazy" width="640" height="960" src="assets/img/pipeline-architecture.jpg" alt="Pipeline diagram: git push triggers GitHub Actions, which runs Docker tests, builds React, creates an artifact and uploads it to S3. EC2 pulls it and serves it from an Nginx container with Docker Compose.">
+    <nav class="links"><a class="btn" href="https://github.com/Moaz-Elgendy/react-docker-pipeline">Read the code</a></nav>
+  </section>
+
+  <section class="ch" id="services" data-theme="mint">
+    <div class="display year" aria-hidden="true">K8s</div>
+    <p class="when">DEPI DevOps training, second project</p>
+    <h2 class="display">Five services, one cluster</h2>
+    <p>An asynchronous Fibonacci calculator, built to watch one request cross service boundaries. The API stores the request in PostgreSQL and publishes it to Redis. A separate worker computes the result. Ingress sends / to the client and /api to the server.</p>
+    <ul class="stops" data-tools="react:React,nodedotjs:Node.js,postgresql:PostgreSQL,redis:Redis,docker:Docker,kubernetes:Kubernetes,nginx:Ingress,githubactions:GitHub Actions"></ul>
+    <div class="facts">
+      <div><b>5</b><span>services: client, API, worker, PostgreSQL, Redis</span></div>
+      <div><b>11</b><span>Kubernetes resources, from Ingress to PVC</span></div>
+      <div><b>3</b><span>replicas each for the client and the API</span></div>
+    </div>
+    <img class="shot" loading="lazy" width="1710" height="641" src="assets/img/services-kubectl.png" alt="Terminal output of kubectl get pods, deployments and services: nine pods running, five deployments ready, five ClusterIP services">
+    <nav class="links"><a class="btn" href="https://github.com/Moaz-Elgendy/microservices-lab">Read the code</a></nav>
+  </section>
+
+  <section class="ch" id="pulse" data-theme="lilac">
+    <div class="display year" aria-hidden="true">ECG</div>
+    <p class="when">August 2025 to June 2026, graduation project</p>
+    <h2 class="display">A side track that got published</h2>
+    <p>PULSE classifies heartbeats and forecasts vital signs. I trained 1D CNN and CNN-LSTM models on the MIT-BIH Arrhythmia Database and built the ECG preprocessing. SMOTE ran on the training split only, so synthetic beats never reached validation or test data.</p>
+    <p>Then I deployed the team's FastAPI backend on AWS EC2. The paper was presented at IMSA 2026 and published in IEEE Xplore.</p>
+    <svg class="ecg" viewBox="0 0 640 120" role="img" aria-label="Animated ECG trace"><path id="ecg" pathLength="1"/></svg>
+    <ul class="stops" data-tools="python:Python,tensorflow:TensorFlow,keras:Keras,scikitlearn:scikit-learn,nvidia:CUDA,fastapi:FastAPI,aws:EC2"></ul>
+    <div class="facts">
+      <div><b>99.15%</b><span>test accuracy, five heartbeat classes</span></div>
+      <div><b>93.3%</b><span>macro F1 on the same test set</span></div>
+      <div><b>60 s</b><span>vital-sign forecast horizon with iTransformer</span></div>
+    </div>
+    <nav class="links" style="margin-top:44px"><a class="btn go" href="https://ieeexplore.ieee.org/document/11700245">Read the paper on IEEE Xplore</a></nav>
+  </section>
+
+  <section class="ch" id="sentinel" data-theme="night">
+    <div class="display year" aria-hidden="true">SRE</div>
+    <p class="when">September 2026, flagship project</p>
+    <h2 class="display">A cluster that fixes itself</h2>
+    <p>Sentinel SRE watches a multi-service app on K3s through Prometheus metrics, Loki logs and Alertmanager alerts. It chooses one of four fixes: restart, scale, rollback or chaos-fault reset. A 30-second confirmation window stops short spikes from triggering anything.</p>
+    <blockquote>The model advises. Policy authorises. Typed executors act. Recovery checks decide whether it worked.</blockquote>
+    <p>Terraform provisions the AWS hosts. GitHub Actions builds the images, pushes them to ECR and deploys through Systems Manager, signing in with OIDC. Anything outside the allow-list goes to an engineer on Slack.</p>
+    <ul class="stops" data-tools="terraform:Terraform,aws:AWS,k3s:K3s,prometheus:Prometheus,grafana:Loki + Grafana,fastapi:FastAPI,githubactions:GitHub Actions,react:Console"></ul>
+    <div class="facts">
+      <div><b>30–90 s</b><span>to recover injected HTTP 5xx and high-CPU failures</span></div>
+      <div><b>308</b><span>automated backend tests</span></div>
+      <div><b>4</b><span>allow-listed actions, each gated by RBAC, confidence and cooldown</span></div>
+      <div><b>0</b><span>stored AWS access keys</span></div>
+    </div>
+    <video class="shot" controls preload="none" width="1881" height="942" poster="assets/img/sentinel-console.png" aria-label="66-second demo: Sentinel handles an HTTP chaos incident and validates recovery">
+      <source src="https://moaz-elgendy.github.io/Sentinel-SRE/docs/media/sentinel-demo.mp4" type="video/mp4">
+    </video>
+    <nav class="links"><a class="btn go" href="https://moaz-elgendy.github.io/Sentinel-SRE/">Open the full showcase</a><a class="btn" href="https://github.com/Moaz-Elgendy/Sentinel-SRE">Read the code</a></nav>
+  </section>
+
+  <section class="ch" id="gitops" data-theme="sky">
+    <div class="display year" aria-hidden="true">2026</div>
+    <p class="when">November 2026, project</p>
+    <h2 class="display">A GitOps platform on one old laptop</h2>
+    <p>Two KVM virtual machines, 8 GB of RAM, a real kubeadm cluster. Jenkins builds and scans the image, then commits the new tag to Git. Argo CD does the rest with self-heal and prune. Jenkins never touches the cluster.</p>
+    <p>The same season I worked as a DevOps intern at iVolve Technologies: <a href="https://github.com/Moaz-Elgendy/ivolve-project">28 documented labs</a> that take an app from a local build to a GitOps release.</p>
+    <ul class="stops" data-tools="ansible:Ansible,kubernetes:kubeadm,github:Webhook,jenkins:Jenkins,trivy:Trivy,docker:Docker Hub,argo:Argo CD,helm:Helm,prometheus:Prometheus,grafana:Grafana,mysql:MySQL"></ul>
+    <div class="facts">
+      <div><b>8</b><span>Ansible roles rebuild everything from bare VMs</span></div>
+      <div><b>1:36</b><span>minutes from commit to scanned image</span></div>
+      <div><b>0</b><span>manual kubectl apply per release</span></div>
+    </div>
+    <img class="shot" loading="lazy" width="1200" height="850" src="assets/img/gitops-architecture.svg" alt="Architecture: a GitHub webhook triggers Jenkins, which builds, scans and pushes the image to Docker Hub and commits the tag to Git. Argo CD syncs the kubeadm cluster.">
+    <nav class="links"><a class="btn go" href="https://moaz-elgendy.github.io/kubeadm-project/">Open the full showcase</a><a class="btn" href="https://github.com/Moaz-Elgendy/kubeadm-project">Read the code</a></nav>
+  </section>
+
+  <section class="ch" id="next" data-theme="butter">
+    <div class="display year" aria-hidden="true">EKS</div>
+    <p class="when">November 2026 <span class="pill">In progress, due 22 November</span></p>
+    <h2 class="display">Next stop: the same pipeline on EKS</h2>
+    <p>My NTI final project moves the GitOps pattern to managed cloud. Terraform modules build the VPC, an EKS cluster with two worker nodes in separate private subnets, ECR and the Jenkins server, with state in S3. Ansible configures Jenkins through dynamic inventory. Jenkins builds, scans and pushes each service. Argo CD deploys.</p>
+    <ul class="stops" data-tools="docker:Compose,terraform:Terraform,aws:EKS + ECR,ansible:Ansible,jenkins:Jenkins,trivy:Trivy,kubernetes:Kubernetes,argo:Argo CD"></ul>
+  </section>
+
+  <section class="ch" id="contact" data-theme="paper">
+    <p class="when">End of the line</p>
+    <h2 class="display">Put me on your pipeline</h2>
+    <p>I am looking for a junior DevOps or cloud role. I am based in Giza, Egypt.</p>
+    <a class="mail" href="mailto:moazm.anas@gmail.com">moazm.anas@gmail.com</a>
+    <nav class="links" style="margin-top:34px" aria-label="Contact">
+      <a class="btn" href="https://linkedin.com/in/moaz-m-elgendy">LinkedIn</a>
+      <a class="btn" href="https://github.com/Moaz-Elgendy">GitHub</a>
+      <a class="btn" href="Moaz_Elgendy_CV.pdf">Download CV</a>
+    </nav>
+    <div class="cv">
+      <div><h3>Education</h3><p>B.Eng. Communication and Electronics Engineering, Canadian International College, 2026. GPA 3.58.</p></div>
+      <div><h3>Experience</h3><p>DevOps intern at iVolve Technologies. DevOps trainee at NTI and DEPI. Network engineering intern at CONNECT. ICT intern at Dar Al-Handasah.</p></div>
+      <div><h3>Training</h3><p>Red Hat Academy: RH124, RH134, DO180 OpenShift, RH294 Ansible. AWS: Cloud Foundations, Security Foundations, Cloud Architecting. CCNA training.</p></div>
+    </div>
+    <footer>Plain HTML, CSS and JavaScript. No framework, no build step. Deployed to GitHub Pages by GitHub Actions. © 2026 Moaz Elgendy.</footer>
+  </section>
+</main>
+
+<script>
+const still = matchMedia("(prefers-reduced-motion:reduce)").matches;
+const logo = id => `assets/logos/${id}.svg`;
+const hero = document.querySelector(".hero"), title = document.querySelector(".title"), elg = document.querySelector(".name span:last-child");
+
+// headings: letters (name) and words (chapters) rise in
+document.querySelectorAll(".name span").forEach((s, r) => s.innerHTML = [...s.textContent].map((c, i) => `<b style="--i:${r * 4 + i}">${c}</b>`).join(""));
+document.querySelectorAll(".ch h2").forEach(h => { h.setAttribute("aria-label", h.textContent);
+  h.innerHTML = h.textContent.split(" ").map((w, i) => `<span aria-hidden="true"><b style="--i:${i}">${w}</b></span>`).join(""); });
+// tool stops: "id:Label" shows a logo, ":Label" shows the text inside the stop
+document.querySelectorAll("[data-tools]").forEach(ul => ul.innerHTML = ul.dataset.tools.split(",").map((t, i) => { const [id, name] = t.split(":");
+  return `<li style="--i:${i}">` + (id ? `<span><img src="${logo(id)}" alt=""></span>${name}` : `<span>${name}</span>`) + `</li>`; }).join(""));
+document.querySelectorAll("[data-stack]").forEach(el => el.innerHTML = el.dataset.stack.split(",").map(t => { const [id, name] = t.split(":");
+  return `<img src="${logo(id)}" alt="${name}" title="${name}">`; }).join(""));
+document.getElementById("ecg").setAttribute("d", "M0 70" + "h44l8-9l8 9h12l6 7l10-62l10 78l6-23h16q11-18 22 0h18".repeat(4));
+
+// the name spans the full width, capped by height on wide screens
+function fit() { hero.style.removeProperty("--n"); const cur = parseFloat(getComputedStyle(elg).fontSize);
+  hero.style.setProperty("--n", Math.min(cur * title.clientWidth / elg.scrollWidth, innerWidth > 800 ? innerHeight * .19 : 999) + "px"); }
+
+// chapters: reveal once, and repaint the page with the chapter's theme
+const reveal = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add("on")), { rootMargin: "0px 0px -30% 0px" });
+const paint = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (document.body.dataset.theme = e.target.dataset.theme)), { rootMargin: "-50% 0px -50% 0px" });
+document.querySelectorAll(".ch").forEach(c => reveal.observe(c));
+document.querySelectorAll("[data-theme]:not(body)").forEach(c => paint.observe(c));
+const journey = document.getElementById("journey");
+const grow = () => { const r = journey.getBoundingClientRect();
+  journey.style.setProperty("--p", Math.max(0, Math.min(100, (innerHeight * .55 - r.top) / r.height * 100)) + "%"); };
+addEventListener("scroll", grow, { passive: true });
+
+// ---------- hero: live network of my tools. Edges follow how they connect in my real pipelines. ----------
+const cv = document.getElementById("net"), cx = cv.getContext("2d"), box = cv.parentElement;
+const P = { cisco: [.04, .24], linux: [.19, .42], gnubash: [.05, .72], python: [.22, .06], ansible: [.37, .3], terraform: [.35, .74], aws: [.53, .93], github: [.5, .04],
+  jenkins: [.58, .4], trivy: [.72, .12], docker: [.82, .42], argo: [.7, .66], kubernetes: [.86, .76], helm: [.98, .52], prometheus: [.7, .96], grafana: [.95, .98] };
+const E = "cisco-linux gnubash-linux python-ansible linux-ansible ansible-jenkins github-jenkins jenkins-trivy trivy-docker docker-argo github-argo argo-kubernetes helm-kubernetes terraform-aws ansible-terraform aws-kubernetes kubernetes-prometheus prometheus-grafana"
+  .split(" ").map((e, i) => [...e.split("-"), i * .37 % 1]);
+const COL = ["#3f5bd9", "#e2574c", "#e9a820"];
+const nodes = Object.entries(P).map(([id, h], i) => { const n = { id, h, x: 0, y: 0, vx: 0, vy: 0, ph: i * 1.7, img: null };
+  const im = new Image(); im.onload = () => { n.img = im; if (still) frame(0); }; im.src = logo(id); return n; });
+const by = Object.fromEntries(nodes.map(n => [n.id, n]));
+let W, H, R, mouse = { x: -999, y: -999 }, live = true;
+const home = n => [R + 6 + n.h[0] * (W - 2 * R - 12), R + 6 + n.h[1] * (H - 2 * R - 12)];
+function size() { const d = devicePixelRatio || 1; W = box.clientWidth; H = box.clientHeight; cv.width = W * d; cv.height = H * d; cx.setTransform(d, 0, 0, d, 0, 0);
+  R = Math.max(19, Math.min(30, W / 20)); nodes.forEach(n => [n.x, n.y] = home(n)); if (still) frame(0); }
+function frame(t) {
+  cx.clearRect(0, 0, W, H);
+  for (const n of nodes) { const [hx, hy] = home(n), tx = hx + Math.sin(t / 1700 + n.ph) * R * .35, ty = hy + Math.cos(t / 2100 + n.ph) * R * .35;
+    const dx = n.x - mouse.x, dy = n.y - mouse.y, d = Math.hypot(dx, dy) || 1, push = d < 150 ? (150 - d) * .035 : 0; // pointer shoves nodes away
+    n.vx = (n.vx + (tx - n.x) * .02 + dx / d * push) * .88; n.vy = (n.vy + (ty - n.y) * .02 + dy / d * push) * .88; n.x += n.vx; n.y += n.vy; }
+  cx.lineWidth = 3; cx.strokeStyle = "rgba(20,32,74,.2)";
+  for (const [a, b] of E) { cx.beginPath(); cx.moveTo(by[a].x, by[a].y); cx.lineTo(by[b].x, by[b].y); cx.stroke(); }
+  E.forEach(([a, b, off], i) => { const k = (t / 2600 + off) % 1; cx.fillStyle = COL[i % 3]; cx.beginPath(); // packets
+    cx.arc(by[a].x + (by[b].x - by[a].x) * k, by[a].y + (by[b].y - by[a].y) * k, R * .2, 0, 7); cx.fill(); });
+  for (const n of nodes) { const near = Math.hypot(n.x - mouse.x, n.y - mouse.y) < R * 2.2, r = near ? R * 1.22 : R;
+    cx.beginPath(); cx.arc(n.x, n.y, r, 0, 7); cx.fillStyle = "#fff"; cx.fill(); cx.lineWidth = 4; cx.strokeStyle = "#14204a"; cx.stroke();
+    if (n.img) cx.drawImage(n.img, n.x - r * .58, n.y - r * .58, r * 1.16, r * 1.16); }
+  if (live && !still) requestAnimationFrame(frame);
+}
+const point = e => { const r = cv.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; };
+box.addEventListener("pointermove", point); box.addEventListener("pointerdown", point);
+box.addEventListener("pointerleave", () => mouse = { x: -999, y: -999 });
+new IntersectionObserver(([e]) => { const was = live; live = e.isIntersecting; if (live && !was && !still) requestAnimationFrame(frame); }).observe(box); // stop drawing off-screen
+const layout = () => { fit(); size(); grow(); };
+addEventListener("resize", layout); layout(); document.fonts.ready.then(layout);
+if (!still) requestAnimationFrame(frame);
+</script>
+</body>
+</html>
