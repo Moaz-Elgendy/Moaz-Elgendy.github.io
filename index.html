@@ -79,8 +79,6 @@ a{color:inherit}
 @supports (animation-timeline:view()){.year{animation:par linear both;animation-timeline:view()}}
 @keyframes par{from{translate:0 30vh}to{translate:0 -30vh}}
 .when{font-weight:800;font-size:20px;margin:0 0 14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
-.pill{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:#fff;font-size:14px;padding:5px 12px;border-radius:99px}
-.pill::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold);animation:ping 1.6s infinite;--hi:var(--gold)}
 .ch h2{font-size:clamp(38px,7vw,104px);max-width:11em;line-height:.95}
 .ch h2 span{display:inline-block;overflow:hidden;vertical-align:top;padding:.05em .26em 0 0}
 .ch h2 b{display:block;font-weight:800;transition:translate .6s cubic-bezier(.2,.9,.2,1) calc(var(--i)*.06s)}
@@ -158,7 +156,8 @@ footer{padding:40px 0 60px;font-size:15px;opacity:.8;max-width:40em}
         <dt class="sec" style="--i:6">Shipped:</dt>
         <dt class="sub" style="--i:7"><a href="#sentinel">sentinel-sre</a></dt><dd style="--i:7">self-heals Kubernetes failures in 30–90&nbsp;s</dd>
         <dt class="sub" style="--i:8"><a href="#gitops">gitops-platform</a></dt><dd style="--i:8">kubeadm + Argo CD, 0 manual deploys</dd>
-        <dt class="sub" style="--i:9"><a href="#pulse">pulse-ecg</a></dt><dd style="--i:9">99.15% accuracy, published in IEEE Xplore</dd>
+        <dt class="sub" style="--i:9"><a href="#eks">ivolve-eks</a></dt><dd style="--i:9">Terraform + EKS + Vault, 3 environments</dd>
+        <dt class="sub" style="--i:10"><a href="#pulse">pulse-ecg</a></dt><dd style="--i:10">99.15% accuracy, published in IEEE Xplore</dd>
       </dl>
     </div>
   </div>
@@ -272,12 +271,21 @@ footer{padding:40px 0 60px;font-size:15px;opacity:.8;max-width:40em}
     <nav class="links"><a class="btn go" href="https://moaz-elgendy.github.io/kubeadm-project/">Open the full showcase</a><a class="btn" href="https://github.com/Moaz-Elgendy/kubeadm-project">Read the code</a></nav>
   </section>
 
-  <section class="ch" id="next" data-theme="butter">
+  <section class="ch" id="eks" data-theme="butter">
     <div class="display year" aria-hidden="true">EKS</div>
-    <p class="when">November 2026 <span class="pill">In progress, due 22 November</span></p>
-    <h2 class="display">Next stop: the same pipeline on EKS</h2>
-    <p>My NTI final project moves the GitOps pattern to managed cloud. Terraform modules build the VPC, an EKS cluster with two worker nodes in separate private subnets, ECR and the Jenkins server, with state in S3. Ansible configures Jenkins through dynamic inventory. Jenkins builds, scans and pushes each service. Argo CD deploys.</p>
-    <ul class="stops" data-tools="docker:Compose,terraform:Terraform,aws:EKS + ECR,ansible:Ansible,jenkins:Jenkins,trivy:Trivy,kubernetes:Kubernetes,argo:Argo CD"></ul>
+    <p class="when">November 2026, iVolve final project</p>
+    <h2 class="display">The same pipeline, now on EKS</h2>
+    <p>The final project moves the GitOps pattern to managed cloud. Terraform builds the VPC, one EKS cluster, nine ECR repositories and the Jenkins host, with state in S3. Ansible configures Jenkins through dynamic inventory. One Jenkins pipeline builds three services, scans them with Trivy, pushes to ECR and commits the new tag. Argo CD deploys each environment from its own branch.</p>
+    <p>Secrets live in HashiCorp Vault, auto-unsealed with KMS and injected into pods by a sidecar. Prometheus and Grafana watch the cluster. Jenkins never talks to the cluster.</p>
+    <ul class="stops" data-tools="terraform:Terraform,aws:EKS + ECR,ansible:Ansible,jenkins:Jenkins,trivy:Trivy,helm:Helm,argo:Argo CD,vault:Vault,prometheus:Prometheus,grafana:Grafana"></ul>
+    <div class="facts">
+      <div><b>3</b><span>environments: dev, stg and prod, each with its own branch and namespace</span></div>
+      <div><b>9</b><span>ECR repositories from one Terraform module</span></div>
+      <div><b>4</b><span>Terraform modules: network, EC2, ECR, EKS</span></div>
+      <div><b>0</b><span>secrets in Git, all served by Vault</span></div>
+    </div>
+    <img class="shot" loading="lazy" width="1600" height="1000" src="assets/img/eks-architecture.svg" alt="Architecture: a git push runs Jenkins, which builds, scans with Trivy, pushes to ECR and bumps the image tag on the environment branch. Argo CD syncs that branch to an EKS namespace, with Vault, monitoring and KMS alongside.">
+    <nav class="links"><a class="btn go" href="https://moaz-elgendy.github.io/ivolve-final-project/">Open the full showcase</a><a class="btn" href="https://github.com/Moaz-Elgendy/ivolve-final-project">Read the code</a></nav>
   </section>
 
   <section class="ch" id="contact" data-theme="paper">
